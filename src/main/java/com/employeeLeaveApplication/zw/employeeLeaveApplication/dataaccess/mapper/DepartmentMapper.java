@@ -11,15 +11,15 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface DepartmentMapper {
     @Mappings({
-             @Mapping(target = "Id", source = "department.Id"),
-            @Mapping(target = "Name", source = "department.Name"),
+             @Mapping(target = "id", source = "department.id"),
+            @Mapping(target = "name", source = "department.name"),
     })
 
     DepartmentDTO EntityToDTO(Department department);
 
     @Mappings({
-            @Mapping(target = "Id", source = "dto.Id"),
-            @Mapping(target = "Name", source = "dto.Name"),
+            @Mapping(target = "id", source = "dto.id"),
+            @Mapping(target = "name", source = "dto.name"),
     })
     Department DTOToEntity(DepartmentDTO dto);
     List<DepartmentDTO>Map(Iterable<Department> departments);

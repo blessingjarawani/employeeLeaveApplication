@@ -11,14 +11,14 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface CompanyMapper {
     @Mappings({
-            @Mapping(target = "Id", source = "company.Id"),
-            @Mapping(target = "Name", source = "company.Name"),
+            @Mapping(target = "id", source = "company.id"),
+            @Mapping(target = "name", source = "company.name"),
     })
     DepartmentDTO EntityToDTO(Company company);
 
     @Mappings({
-            @Mapping(target = "Id", source = "dto.Id"),
-            @Mapping(target = "Name", source = "dto.Name"),
+            @Mapping(target = "id", source = "dto.id"),
+            @Mapping(target = "name", source = "dto.name"),
     })
     Company DTOToEntity(CompanyDTO dto);
     List<CompanyDTO> Map(Iterable<Company> companies);

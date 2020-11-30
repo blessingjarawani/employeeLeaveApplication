@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <title>Departments | ESS</title>
+</head>
+<body>
+<div align="center">
+    <h1>Departments</h1>
+    <a href="/department/create">New</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+    <tr th:each="department : ${departmentList}">
+        <td th:text="${department.id}"></td>
+        <td th:text="${department.name}"></td>
+        <td>
+
+        </td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -16,14 +16,14 @@ public class DepartmentController {
     @Autowired
    private DepartmentService departmentService;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String GetAll(Model model)
     {
         model.addAttribute("departmentList", departmentService.GetAll());
         return "Department/index";
     }
      @RequestMapping("/create")
-    public String Create (Model model)
+    public String create (Model model)
    {
     DepartmentDTO department = new DepartmentDTO();
     model.addAttribute("department",department);
@@ -31,8 +31,8 @@ public class DepartmentController {
 
   }
 
-  @PostMapping("/Save")
- public String Save(@ModelAttribute("department") DepartmentDTO department)
+  @PostMapping("/save")
+ public String save(@ModelAttribute("department") DepartmentDTO department)
   {
       departmentService.AddOrUpdate(department);
       return "redirect:/department/";

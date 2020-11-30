@@ -11,24 +11,24 @@ import java.util.List;
 @Mapper(componentModel ="spring")
 public interface LeaveApplicationsMapper {
 @Mappings({
-        @Mapping(target = "EmployeeId", source = "entity.EmployeeId"),
-        @Mapping(target = "Id", source = "entity.Id"),
-        @Mapping(target = "LeaveType", source = "entity.LeaveType"),
-        @Mapping(target = "DateFrom", source = "entity.DateFrom"),
-        @Mapping(target = "DateTo", source = "entity.DateTo"),
-        @Mapping(target = "DaysTaken", source = "entity.DaysTaken"),
-        @Mapping(target = "Comment", source = "entity.Comment")
+       // @Mapping(target = "employeeId", source = "entity.employeeId"),
+        @Mapping(target = "id", source = "entity.id"),
+        @Mapping(target = "leaveType", source = "entity.leaveType"),
+        @Mapping(target = "dateFrom", source = "entity.dateFrom"),
+        @Mapping(target = "dateTo", source = "entity.dateTo"),
+        @Mapping(target = "daysTaken", source = "entity.daysTaken"),
+        @Mapping(target = "comment", source = "entity.comment")
 })
     LeaveApplicationDTO EntityToDTO(LeaveApplications entity);
 
     @Mappings({
-            @Mapping(target = "EmployeeId", source = "leaveApplicationDTO.EmployeeId"),
-            @Mapping(target = "Id", source = "leaveApplicationDTO.Id"),
-            @Mapping(target = "LeaveType", source = "leaveApplicationDTO.LeaveType"),
-            @Mapping(target = "DateFrom", source = "leaveApplicationDTO.DateFrom"),
-            @Mapping(target = "DateTo", source = "leaveApplicationDTO.DateTo"),
-            @Mapping(target = "DaysTaken", source = "leaveApplicationDTO.DaysTaken"),
-            @Mapping(target = "Comment", source = "leaveApplicationDTO.Comment")
+            //@Mapping(target = "employeeId", source = "leaveApplicationDTO.employeeId"),
+            @Mapping(target = "id", source = "leaveApplicationDTO.id"),
+            @Mapping(target = "leaveType", source = "leaveApplicationDTO.leaveType"),
+            @Mapping(target = "dateFrom", source = "leaveApplicationDTO.dateFrom"),
+            @Mapping(target = "dateTo", source = "leaveApplicationDTO.dateTo"),
+            @Mapping(target = "daysTaken", source = "leaveApplicationDTO.daysTaken"),
+            @Mapping(target = "comment", source = "leaveApplicationDTO.comment")
     })
 
     LeaveApplications DTOToEntity(LeaveApplicationDTO leaveApplicationDTO);

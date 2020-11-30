@@ -14,27 +14,27 @@ import java.util.List;
 public interface EmployeeMapper {
     @Mappings(
             {
-                    @Mapping(target = "Id", source = "entity.Id"),
-                    @Mapping(target = "EmpCode", source = "entity.EmpCode"),
-                    @Mapping(target = "LastName", source = "entity.LastName"),
-                    @Mapping(target = "FirstName", source = "entity.FirstName"),
-                    @Mapping(target = "DateOfBirth", source = "entity.DateOfBirth"),
-                    @Mapping(target = "Gender", source = "entity.Gender"),
-                    @Mapping(target = "Department", source = "entity.Department"),
-                    @Mapping(target = "Company", source = "entity.Company"),
-                    @Mapping(target = "LeaveApplications", source = "entity.LeaveApplication")
+                    @Mapping(target = "id", source = "entity.id"),
+                    @Mapping(target = "empCode", source = "entity.empCode"),
+                    @Mapping(target = "lastName", source = "entity.lastName"),
+                    @Mapping(target = "firstName", source = "entity.firstName"),
+                    @Mapping(target = "dateOfBirth", source = "entity.dateOfBirth"),
+                    @Mapping(target = "gender", source = "entity.gender"),
+                    @Mapping(target = "department", source = "entity.department"),
+                    @Mapping(target = "company", source = "entity.company"),
+                    @Mapping(target = "leaveApplications", source = "entity.leaveApplication")
             })
     EmployeeDTO EntityToDTO(Employees entity);
 
     @Mappings({
-            @Mapping(target = "Id", source = "employeeDTO.Id"),
-            @Mapping(target = "EmpCode", source = "employeeDTO.EmpCode"),
-            @Mapping(target = "LastName", source = "employeeDTO.LastName"),
-            @Mapping(target = "FirstName", source = "employeeDTO.FirstName"),
-            @Mapping(target = "DateOfBirth", source = "employeeDTO.DateOfBirth"),
-            @Mapping(target = "Gender", source = "employeeDTO.Gender"),
-            @Mapping(target = "DepartmentId", source = "employeeDTO.Department.Id"),
-            @Mapping(target = "CompanyId", source = "employeeDTO.Company.Id")
+            @Mapping(target = "id", source = "employeeDTO.id"),
+            @Mapping(target = "empCode", source = "employeeDTO.empCode"),
+            @Mapping(target = "lastName", source = "employeeDTO.lastName"),
+            @Mapping(target = "firstName", source = "employeeDTO.firstName"),
+            @Mapping(target = "dateOfBirth", source = "employeeDTO.dateOfBirth"),
+            @Mapping(target = "gender", source = "employeeDTO.gender"),
+            //@Mapping(target = "departmentId", source = "employeeDTO.department.Id"),
+           // @Mapping(target = "companyId", source = "employeeDTO.company.id")
     })
 
     Employees DTOToEntity(EmployeeDTO employeeDTO);
