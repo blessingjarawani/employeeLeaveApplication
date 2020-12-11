@@ -5,11 +5,11 @@
       xmlns:th="http://www.thymeleaf.org"
       lang="pl">
 <div layout:fragment="content">
-    <h1 class="text-center mt-3">Department</h1>
+    <h1 class="text-center mt-3">Employees</h1>
     <hr/>
     <div class="row mt-1">
         <div class="col-12 text-right">
-            <a class="btn btn-primary" href="/department/create">+ Add new</a>
+            <a class="btn btn-primary" href="/employee/create">+ Add New</a>
         </div>
     </div>
     <div class="row mt-4">
@@ -19,14 +19,19 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Name</th>
+                    <th>EmpCode</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
                     <th></th>
+
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="department : ${departmentList}">
-                    <td th:text="${department.id}"></td>
-                    <td th:text="${department.name}"></td>
+                <tr th:each="employee : ${employeeList}">
+                    <td th:text="${employee.id}"></td>
+                    <td th:text="${employee.empCode}"></td>
+                    <td th:text="${employee.firstName}"></td>
+                    <td th:text="${employee.lastName}"></td>
                     <td>
 
                     </td>

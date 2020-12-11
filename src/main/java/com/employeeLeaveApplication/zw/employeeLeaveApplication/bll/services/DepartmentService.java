@@ -37,7 +37,7 @@ public class DepartmentService {
             Department department = departmentsRepository.findById(newDepartment.getId()).orElse(null);
             if (department==null)
             {
-                departmentsRepository.save(department);
+                departmentsRepository.save(newDepartment);
                 return true;
             }
         }
