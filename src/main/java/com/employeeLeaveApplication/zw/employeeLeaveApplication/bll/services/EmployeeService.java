@@ -37,7 +37,7 @@ public class EmployeeService {
             Employees employee = employeeRepository.findById(newEmployee.getId()).orElse(null);
             if (employee==null)
             {
-                employeeRepository.save(employee);
+                employeeRepository.save(newEmployee);
                 return true;
             }
         }

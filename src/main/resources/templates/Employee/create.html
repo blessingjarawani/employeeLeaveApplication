@@ -17,6 +17,16 @@
                            th:field="*{empCode}" id="empCode" />
                 </div>
                 <div class="form-group">
+                    <label for="title">Title</label>
+                    <select class="form-control" th:field="*{title}" id="title">
+                        <option value="">Nothing selected</option>
+                        <option th:each="title : ${T(com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.dictionaries.Dictionaries.Title).values()}"
+                                th:value="${title}"
+                                th:text="${title}">Title
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="firstName">First name</label>
                     <input class="form-control" type="text"
                            th:field="*{firstName}" id="firstName" />
@@ -25,6 +35,16 @@
                     <label for="lastName">Last name</label>
                     <input class="form-control" type="text" th:field="*{lastName}"
                            id="lastName" />
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <select class="form-control" th:field="*{companyId}" id="company">
+                        <option value="">Nothing selected</option>
+                        <option th:each="company : ${companyList}"
+                                th:value="${company.id}"
+                                th:text="${company.name}">Company
+                        </option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="department">Department</label>
@@ -36,13 +56,14 @@
                         </option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="company">Company</label>
-                    <select class="form-control" th:field="*{companyId}" id="company">
+                    <label for="title">Gender</label>
+                    <select class="form-control" th:field="*{gender}" id="gender">
                         <option value="">Nothing selected</option>
-                        <option th:each="company : ${companyList}"
-                                th:value="${company.id}"
-                                th:text="${company.name}">Company
+                        <option th:each="gender : ${T(com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.dictionaries.Dictionaries.Gender).values()}"
+                                th:value="${gender}"
+                                th:text="${gender}">Gender
                         </option>
                     </select>
                 </div>
