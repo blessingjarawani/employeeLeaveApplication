@@ -2,9 +2,8 @@ package com.employeeLeaveApplication.zw.employeeLeaveApplication.controller;
 
 import com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.services.CompanyService;
 import com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.services.DepartmentService;
-import com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.services.EmployeeService;
+import com.employeeLeaveApplication.zw.employeeLeaveApplication.dto.CompanyDTO;
 import com.employeeLeaveApplication.zw.employeeLeaveApplication.dto.DepartmentDTO;
-import com.employeeLeaveApplication.zw.employeeLeaveApplication.dto.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,37 +13,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/employee")
-public class EmployeeController {
-    @Autowired
-    private EmployeeService employeeService;
-    @Autowired
-    private DepartmentService departmentService;
+@RequestMapping("/company")
+public class CompanyController {
     @Autowired
     private CompanyService companyService;
+
     @GetMapping("/")
-    public  String GetEmployees(Model model)
+    public String GetAll(Model model)
     {
-
-        model.addAttribute("employeeList", employeeService.GetAll());
-        return "employee/index";
+        model.addAttribute("companyList", companyService.GetAll());
+        return "company/index";
     }
-
     @RequestMapping("/create")
     public String create (Model model)
     {
-        EmployeeDTO employee = new EmployeeDTO();
-        model.addAttribute("departmentList", departmentService.GetAll());
-        model.addAttribute("companyList", companyService.GetAll());
-        model.addAttribute("employee",employee);
-        return  "employee/create";
+        CompanyDTO company = new CompanyDTO();
+        model.addAttribute("company",company);
+        return  "company/create";
 
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("employee") EmployeeDTO employee)
+    public String save(@ModelAttribute("company") CompanyDTO company)
     {
-        employeeService.AddOrUpdate(employee);
-        return "redirect:/employee/";
+        companyService.AddOrUpdate(company);
+        return "redirect:/company/";
     }
 }

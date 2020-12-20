@@ -26,7 +26,26 @@
                     <input class="form-control" type="text" th:field="*{lastName}"
                            id="lastName" />
                 </div>
-
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select class="form-control" th:field="*{departmentId}" id="department">
+                        <option value="">Nothing selected</option>
+                        <option th:each="department : ${departmentList}"
+                                th:value="${department.id}"
+                                th:text="${department.name}">department
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <select class="form-control" th:field="*{companyId}" id="company">
+                        <option value="">Nothing selected</option>
+                        <option th:each="company : ${companyList}"
+                                th:value="${company.id}"
+                                th:text="${company.name}">Company
+                        </option>
+                    </select>
+                </div>
 
                 <button type="submit" class="btn btn-primary mb-2 text-right">
                     Save

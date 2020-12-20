@@ -33,8 +33,8 @@ public interface EmployeeMapper {
             @Mapping(target = "firstName", source = "employeeDTO.firstName"),
             @Mapping(target = "dateOfBirth", source = "employeeDTO.dateOfBirth"),
             @Mapping(target = "gender", source = "employeeDTO.gender"),
-            //@Mapping(target = "departmentId", source = "employeeDTO.department.Id"),
-           // @Mapping(target = "companyId", source = "employeeDTO.company.id")
+            @Mapping(target = "department.id", source = "employeeDTO.departmentId"),
+            @Mapping(target = "company.id", source = "employeeDTO.companyId")
     })
 
     Employees DTOToEntity(EmployeeDTO employeeDTO);

@@ -21,6 +21,10 @@ public class EmployeeDTO {
 
     private Dictionaries.Gender Gender;
 
+    private Integer DepartmentId;
+
+    private  Integer CompanyId;
+
     private List<LeaveApplicationDTO> LeaveApplications ;
 
     private DepartmentDTO Department ;
@@ -106,5 +110,21 @@ public class EmployeeDTO {
 
     public void setCompany(CompanyDTO company) {
         Company = company;
+    }
+
+    public Integer getDepartmentId() {
+        return DepartmentId;
+    }
+
+    public void setDepartmentId(Integer departmentId) {
+        DepartmentId = departmentId;
+    }
+
+    public Integer getCompanyId() {
+        return CompanyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        CompanyId = companyId;
     }
 }

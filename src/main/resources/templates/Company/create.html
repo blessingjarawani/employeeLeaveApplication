@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/main_layout.html}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pl">
+
+<div layout:fragment="content">
+    <h1 class="text-center mt-3">New Company</h1>
+    <hr/>
+    <div class="row mt-1">
+        <div class="col-12">
+            <form action="#" th:action="@{/company/save}" th:object="${company}"
+                  method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text"
+                           th:field="*{name}" id="name" />
+                </div>
+                <button type="submit" class="btn btn-primary mb-2 text-right">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+</html>
