@@ -28,7 +28,11 @@
                     <td th:text="${department.id}"></td>
                     <td th:text="${department.name}"></td>
                     <td>
-
+                    <td>
+                        <a class="btn btn-sm btn-primary"
+                           th:href="@{'/department/edit/' + ${department.id}}">Edit</a>
+                        &nbsp;&nbsp;&nbsp;
+                    </td>
                     </td>
                 </tr>
                 </tbody>

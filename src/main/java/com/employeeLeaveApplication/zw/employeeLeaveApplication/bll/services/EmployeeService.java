@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,7 +26,7 @@ public class EmployeeService {
         return mapper.Map(employeeRepository.findAll());
     }
 
-    public EmployeeDTO GetbyId(Integer id)
+    public EmployeeDTO GetById(Integer id)
     {
         return  mapper.EntityToDTO(employeeRepository.findById(id).orElse(null));
     }
@@ -35,11 +37,16 @@ public class EmployeeService {
         {
             Employees newEmployee = mapper.DTOToEntity(employeeDTO);
             Employees employee = employeeRepository.findById(newEmployee.getId()).orElse(null);
-            if (employee==null)
+            if (employee!=null)
             {
-                employeeRepository.save(newEmployee);
-                return true;
+              newEmployee.setUpdatedDate(new Date());
+            }else
+            {
+                newEmployee.setCreatedDate(new Date());
+                newEmployee.setActive(true);
             }
+            employeeRepository.save(newEmployee);
+            return true;
         }
         return false;
     }

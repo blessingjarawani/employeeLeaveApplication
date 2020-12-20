@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/main_layout.html}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pl">
+<div layout:fragment="content">
+    <h1 class="text-center mt-3">New Employee</h1>
+    <hr/>
+    <div class="row mt-1">
+        <div class="col-12">
+            <form action="#" th:action="@{/employee/save}" th:object="${employee}"
+                  method="post">
+                <div class="form-group">
+                    <label for="id">Id</label>
+                    <input class="form-control" type="text" th:field="*{id}"
+                           readonly="readonly" id="id" />
+                </div>
+                <div class="form-group">
+                    <label for="empCode">Emp Code</label>
+                    <input class="form-control" type="text"
+                           th:field="*{empCode}" id="empCode" />
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <select class="form-control" th:field="*{title}" id="title">
+                        <option value="">Nothing selected</option>
+                        <option th:each="title : ${T(com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.dictionaries.Dictionaries.Title).values()}"
+                                th:value="${title}"
+                                th:text="${title}"
+                                th:selected ="${employee.Title}">Title
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input class="form-control" type="text"
+                           th:field="*{firstName}" id="firstName" />
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input class="form-control" type="text" th:field="*{lastName}"
+                           id="lastName" />
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <select class="form-control" th:field="*{companyId}" id="company">
+                        <option value="">Nothing selected</option>
+                        <option th:each="company : ${companyList}"
+                                th:value="${company.id}"
+                                th:text="${company.name}"
+                                th:selected ="${employee.companyId}">Company
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select class="form-control" th:field="*{departmentId}" id="department">
+    -                   <option value="">Nothing selected</option>
+                        <option th:each="department : ${departmentList}"
+                                th:value="${department.id}"
+                                th:text="${department.name}"
+                                th:selected ="${employee.departmentId}">department
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Gender</label>
+                    <select class="form-control" th:field="*{gender}" id="gender">
+                        <option value="">Nothing selected</option>
+                        <option th:each="gender : ${T(com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.dictionaries.Dictionaries.Gender).values()}"
+                                th:value="${gender}"
+                                th:text="${gender}">Gender
+                        </option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2 text-right">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+</html>

@@ -8,10 +8,8 @@ import com.employeeLeaveApplication.zw.employeeLeaveApplication.dto.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/employee")
@@ -46,5 +44,20 @@ public class EmployeeController {
     {
         employeeService.AddOrUpdate(employee);
         return "redirect:/employee/";
+    }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable(name = "id") int id) {
+        ModelAndView modelAndView = new ModelAndView("employee/edit");
+        modelAndView.addObject(
+                "employee",
+                employeeService.GetById(id));
+        modelAndView.addObject(
+                "companyList",
+                companyService.GetAll());
+        modelAndView.addObject(
+                "departmentList",
+                departmentService.GetAll());
+        return modelAndView;
     }
 }

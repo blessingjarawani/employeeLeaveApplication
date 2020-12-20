@@ -6,6 +6,8 @@ import com.employeeLeaveApplication.zw.employeeLeaveApplication.dto.DepartmentDT
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 import java.util.List;
 
 
@@ -35,11 +37,16 @@ public class DepartmentService {
         {
             Department newDepartment = Mapper.DTOToEntity(departmentDTO);
             Department department = departmentsRepository.findById(newDepartment.getId()).orElse(null);
-            if (department==null)
+            if (department!=null)
             {
-                departmentsRepository.save(newDepartment);
-                return true;
+                newDepartment.setUpdatedDate(new Date());
+            }else
+            {
+                newDepartment.setCreatedDate(new Date());
+                newDepartment.setActive(true);
             }
+            departmentsRepository.save(newDepartment);
+            return true;
         }
         return false;
     }

@@ -7,10 +7,8 @@ import com.employeeLeaveApplication.zw.employeeLeaveApplication.dto.DepartmentDT
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/company")
@@ -38,5 +36,13 @@ public class CompanyController {
     {
         companyService.AddOrUpdate(company);
         return "redirect:/company/";
+    }
+    @RequestMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable(name = "id") int id) {
+        ModelAndView modelAndView = new ModelAndView("company/edit");
+        modelAndView.addObject(
+                "company",
+                companyService.GetById(id));
+        return modelAndView;
     }
 }

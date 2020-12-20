@@ -28,7 +28,8 @@
                     <td th:text="${company.id}"></td>
                     <td th:text="${company.name}"></td>
                     <td>
-
+                        <a class="btn btn-sm btn-primary"
+                           th:href="@{'/company/edit/' + ${company.id}}">Edit</a>
                     </td>
                 </tr>
                 </tbody>

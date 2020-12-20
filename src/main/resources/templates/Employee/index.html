@@ -22,6 +22,8 @@
                     <th>EmpCode</th>
                     <th>FirstName</th>
                     <th>LastName</th>
+                    <th>Company</th>
+                    <th>Department</th>
                     <th></th>
 
                 </tr>
@@ -32,8 +34,15 @@
                     <td th:text="${employee.empCode}"></td>
                     <td th:text="${employee.firstName}"></td>
                     <td th:text="${employee.lastName}"></td>
+                    <td th:text="${employee.company.name}"></td>
+                    <td th:text="${employee.department.name}"></td>
                     <td>
-
+                        <a class="btn btn-sm btn-primary"
+                           th:href="@{'/employee/edit/' + ${employee.id}}">Edit</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-sm btn-danger"
+                           th:href="@{'/employee/delete/' + ${employee.id}}">Delete</a>
+                    </td>
                     </td>
                 </tr>
                 </tbody>

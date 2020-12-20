@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -36,11 +37,17 @@ public class CompanyService {
         {
             Company newCompany = Mapper.DTOToEntity(companyDTO);
             Company company = companyRepository.findById(newCompany.getId()).orElse(null);
-            if (company==null)
+            if (company!=null)
             {
-                companyRepository.save(newCompany);
-                return true;
+               newCompany.setUpdatedDate(new Date());
             }
+            else
+            {
+                newCompany.setActive(true);
+                newCompany.setCreatedDate(new Date());
+            }
+            companyRepository.save(newCompany);
+            return true;
         }
         return false;
     }
