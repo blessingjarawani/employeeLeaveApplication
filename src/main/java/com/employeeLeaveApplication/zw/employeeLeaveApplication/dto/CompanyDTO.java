@@ -1,7 +1,11 @@
 package com.employeeLeaveApplication.zw.employeeLeaveApplication.dto;
 
+import javax.validation.constraints.NotEmpty;
+
 public class CompanyDTO {
     private int Id;
+
+   @NotEmpty(message = "Company Name cannot be Empty")
     private String Name;
 
     public int getId() {

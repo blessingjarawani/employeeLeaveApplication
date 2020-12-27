@@ -27,7 +27,7 @@ public class CompanyService {
         return Mapper.Map(companyRepository.findAll());
     }
 
-    public  DepartmentDTO GetById(Integer id)
+    public  CompanyDTO GetById(Integer id)
     {
         return Mapper.EntityToDTO(companyRepository.findById(id).orElse(null));
     }

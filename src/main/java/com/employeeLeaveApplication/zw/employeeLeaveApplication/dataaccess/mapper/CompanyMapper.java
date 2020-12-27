@@ -14,7 +14,7 @@ public interface CompanyMapper {
             @Mapping(target = "id", source = "company.id"),
             @Mapping(target = "name", source = "company.name"),
     })
-    DepartmentDTO EntityToDTO(Company company);
+    CompanyDTO EntityToDTO(Company company);
 
     @Mappings({
             @Mapping(target = "id", source = "dto.id"),

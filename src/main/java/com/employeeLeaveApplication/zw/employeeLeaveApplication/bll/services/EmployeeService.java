@@ -50,4 +50,8 @@ public class EmployeeService {
         }
         return false;
     }
+
+    public void DeleteById(Integer id) {
+        employeeRepository.deleteById(id);
+    }
 }

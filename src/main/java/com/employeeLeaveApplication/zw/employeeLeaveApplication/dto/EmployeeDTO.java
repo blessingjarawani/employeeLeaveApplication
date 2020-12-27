@@ -2,6 +2,7 @@ package com.employeeLeaveApplication.zw.employeeLeaveApplication.dto;
 
 import com.employeeLeaveApplication.zw.employeeLeaveApplication.bll.dictionaries.Dictionaries;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.List;
 
@@ -9,17 +10,20 @@ import java.util.List;
 public class EmployeeDTO {
 
     private int  Id;
+    @NotEmpty(message = "FirstName cannot be Empty")
     private String FirstName;
-
+    @NotEmpty(message = "LastName cannot be Empty")
     private String LastName;
 
     private Date DateOfBirth;
 
+    @NotEmpty(message = "EmpCode Name cannot be Empty")
     private String EmpCode;
 
     private Dictionaries.Title Title;
 
     private Dictionaries.Gender Gender;
+
 
     private Integer DepartmentId;
 
